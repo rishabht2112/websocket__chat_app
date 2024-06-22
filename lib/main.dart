@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Real time chat app',
-      home: const LoginPage(),
+      home: LoginPage(),
     );
   }
 }

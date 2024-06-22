@@ -7,6 +7,8 @@ import '../bloc/chat/chat_bloc.dart';
 import 'chat_screen.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
