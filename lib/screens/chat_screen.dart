@@ -119,10 +119,10 @@ class ChatPage extends StatelessWidget {
                                     : Alignment.centerLeft,
                                 padding: EdgeInsets.symmetric(
                                     vertical: 4, horizontal: 8),
-                                child: Wrap(
-                                  alignment: message.isSentByMe
-                                      ? WrapAlignment.end
-                                      : WrapAlignment.start,
+                                child: Row(
+                                  mainAxisAlignment: message.isSentByMe
+                                      ? MainAxisAlignment.end
+                                      : MainAxisAlignment.start,
                                   children: [
                                     if (!message.isSentByMe)
                                       CircleAvatar(
