@@ -210,7 +210,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
       );
     } else {
-      _showError('No user registered with given credentials!');
+      _showError('No user registered with given credentials!\n Please sign up to proceed!');
     }
   }
 
@@ -227,7 +227,7 @@ class _LoginPageState extends State<LoginPage> {
     final userList = prefs.getStringList('user_list') ?? [];
 
     if (userList.contains(username)) {
-      _showError('Username already exists');
+      _showError('Username already exists!\n Try logging in.');
       return;
     }
 

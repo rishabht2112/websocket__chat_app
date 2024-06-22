@@ -1,13 +1,10 @@
-
 import 'package:chat_application_websocket/screens/switch_user_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../bloc/chat/chat_bloc.dart';
 import '../bloc/chat/chat_event.dart';
 import '../bloc/chat/chat_state.dart';
 import 'auth_screen.dart';
-
 
 class ChatPage extends StatelessWidget {
   final String username;
@@ -37,7 +34,9 @@ class ChatPage extends StatelessWidget {
         title: Row(
           children: [
             OnlineIndicator(),
-            SizedBox(width: 8,),
+            SizedBox(
+              width: 8,
+            ),
             Text('WebSocket Echo - $username'),
           ],
         ),
@@ -53,7 +52,8 @@ class ChatPage extends StatelessWidget {
                   ),
                 );
                 if (newUsername != null) {
-                  BlocProvider.of<ChatBloc>(context).add(SwitchUser(newUsername));
+                  BlocProvider.of<ChatBloc>(context)
+                      .add(SwitchUser(newUsername));
                 }
               },
             ),
@@ -126,24 +126,25 @@ class ChatPage extends StatelessWidget {
                                   children: [
                                     if (!message.isSentByMe)
                                       CircleAvatar(
-                                        child: Icon(Icons.android, color: Colors.green),
+                                        child: Icon(Icons.android,
+                                            color: Colors.green),
                                       ),
                                     SizedBox(width: 10),
                                     Expanded(
                                       child: Container(
-                                        // constraints: BoxConstraints(
-                                        //   maxWidth: MediaQuery.of(context).size.width * 0.5,
-                                        // ),
                                         decoration: BoxDecoration(
                                           color: backgroundColor,
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                         ),
                                         padding: EdgeInsets.all(10),
                                         child: Column(
                                           crossAxisAlignment: alignment,
                                           children: [
                                             Text(
-                                              message.isSentByMe ? username : 'Server',
+                                              message.isSentByMe
+                                                  ? username
+                                                  : 'Server',
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                               ),
@@ -160,7 +161,8 @@ class ChatPage extends StatelessWidget {
                                     SizedBox(width: 10),
                                     if (message.isSentByMe)
                                       CircleAvatar(
-                                       child: Icon(Icons.person), // Replace with user's avatar URL
+                                        child: Icon(Icons
+                                            .person), // Replace with user's avatar URL
                                       ),
                                   ],
                                 ),
@@ -203,7 +205,8 @@ class ChatPage extends StatelessWidget {
                           onPressed: () {
                             final message = _controller.text;
                             if (message.isNotEmpty) {
-                              BlocProvider.of<ChatBloc>(context).add(SendMessage(message));
+                              BlocProvider.of<ChatBloc>(context)
+                                  .add(SendMessage(message));
                               _controller.clear();
                               _scrollToBottom();
                             }

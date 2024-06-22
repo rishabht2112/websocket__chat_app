@@ -10,10 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Aayna Chat Assignment',
-      home: LoginPage(),
+      title: 'Real time chat app',
+      home: const LoginPage(),
     );
   }
 }

@@ -1,5 +1,3 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -24,28 +22,32 @@ class UserListPage extends StatelessWidget {
 
           final users = snapshot.data!;
 
-          return users.isEmpty ? Center(child: Container(child: Text('No user found!'),),) : ListView.builder(
-            itemCount: users.length,
-            itemBuilder: (context, index) {
-              return Card(
-                color: Colors.white,
-                surfaceTintColor: Colors.white,
-                elevation: 4,
-                child: ListTile(
-                  focusColor: Colors.blue,
-                  hoverColor: Colors.blue,
-                  selectedColor: Colors.blue,
-                  splashColor: Colors.blue,
-                  selectedTileColor: Colors.red,
-                  leading: Icon(Icons.person),
-                  title: Text(users[index]),
-                  onTap: () {
-                    Navigator.of(context).pop(users[index]);
+          return users.isEmpty
+              ? const Center(
+                  child: Text('No user found!'),
+                )
+              : ListView.builder(
+                  itemCount: users.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      color: Colors.white,
+                      surfaceTintColor: Colors.white,
+                      elevation: 4,
+                      child: ListTile(
+                        focusColor: Colors.blue,
+                        hoverColor: Colors.blue,
+                        selectedColor: Colors.blue,
+                        splashColor: Colors.blue,
+                        selectedTileColor: Colors.red,
+                        leading: const Icon(Icons.person),
+                        title: Text(users[index]),
+                        onTap: () {
+                          Navigator.of(context).pop(users[index]);
+                        },
+                      ),
+                    );
                   },
-                ),
-              );
-            },
-          );
+                );
         },
       ),
     );
